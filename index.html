@@ -124,6 +124,8 @@
   .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -10px rgba(234, 95, 76, 0.8); }
   .cta svg { width: 18px; height: 18px; fill: currentColor; }
   .cta-note { font-size: 0.9rem; color: var(--muted); }
+  .dlcount { margin: 16px 0 0; font-size: 0.95rem; color: var(--muted); }
+  .dlcount .dlnum { font-family: var(--display); font-weight: 700; color: var(--accent-deep); font-variant-numeric: tabular-nums; }
   .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
   .badge {
     font-size: 13px; font-weight: 600; color: var(--accent-deep);
@@ -260,6 +262,10 @@
       <span class="badge fr">Apple Silicon · macOS 26+</span><span class="badge en">Apple Silicon · macOS 26+</span>
       <span class="badge">Version 1.4.0</span>
     </div>
+    <p class="dlcount" id="dlcount" hidden>
+      <span class="fr">Déjà <span class="dlnum">—</span> téléchargements</span>
+      <span class="en">Already <span class="dlnum">—</span> downloads</span>
+    </p>
   </header>
 
   <div class="wave" aria-hidden="true">
@@ -530,6 +536,39 @@
   }
   // default language from browser, French-first
   setLang((navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr');
+
+  // Compteur de téléchargements : somme des download_count des DMG (assets
+  // Blabla*.dmg) sur toutes les releases publiques. GitHub ne fournit que le
+  // TOTAL (pas les téléchargements uniques). Les archives de mise à jour auto
+  // (Blabla-Update.zip) sont exclues. Cache 10 min pour ménager la limite de
+  // l'API GitHub non authentifiée (60 requêtes/h par IP) ; en cas d'échec ou
+  // de quota atteint, le compteur reste simplement masqué.
+  (function () {
+    var KEY = 'blabla_dl', TTL = 600000;
+    function show(n) {
+      var els = document.querySelectorAll('#dlcount .dlnum');
+      for (var i = 0; i < els.length; i++) els[i].textContent = n.toLocaleString('fr-FR');
+      document.getElementById('dlcount').hidden = false;
+    }
+    try {
+      var c = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (c && (Date.now() - c.t) < TTL) { show(c.n); return; }
+    } catch (e) {}
+    fetch('https://api.github.com/repos/salsbo/blabla-guide/releases?per_page=100')
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (rels) {
+        var n = 0;
+        for (var i = 0; i < rels.length; i++) {
+          var assets = rels[i].assets || [];
+          for (var j = 0; j < assets.length; j++) {
+            if (/^blabla.*\.dmg$/i.test(assets[j].name)) n += assets[j].download_count || 0;
+          }
+        }
+        show(n);
+        try { localStorage.setItem(KEY, JSON.stringify({ n: n, t: Date.now() })); } catch (e) {}
+      })
+      .catch(function () { /* hors ligne / quota API : compteur masqué */ });
+  })();
 </script>
 </body>
 </html>
