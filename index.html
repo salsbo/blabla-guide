@@ -112,7 +112,19 @@
     text-wrap: balance;
   }
   .lede { font-size: 1.18rem; color: var(--muted); max-width: 30ch; margin: 0 auto; text-wrap: balance; }
-  .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 26px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: center; align-items: center; margin-top: 30px; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--display); font-weight: 700; font-size: 1.02rem;
+    background: var(--accent); color: #fff; text-decoration: none;
+    padding: 13px 24px; border-radius: 12px;
+    box-shadow: 0 10px 26px -10px rgba(234, 95, 76, 0.7);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -10px rgba(234, 95, 76, 0.8); }
+  .cta svg { width: 18px; height: 18px; fill: currentColor; }
+  .cta-note { font-size: 0.9rem; color: var(--muted); }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
   .badge {
     font-size: 13px; font-weight: 600; color: var(--accent-deep);
     background: color-mix(in srgb, var(--accent) 12%, transparent);
@@ -223,10 +235,24 @@
     <div class="fr">
       <h1>Dictez partout sur votre Mac</h1>
       <p class="lede">Blabla transcrit votre voix en texte, instantanément, sans jamais quitter votre Mac.</p>
+      <div class="cta-row">
+        <a class="cta" href="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla.dmg" download>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.69l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.22 2.22V1.75A.75.75 0 0 1 8 1ZM2.75 13a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H2.75Z"/></svg>
+          Télécharger pour Mac
+        </a>
+        <span class="cta-note">Gratuit · macOS 26+ · Apple Silicon</span>
+      </div>
     </div>
     <div class="en">
       <h1>Dictate anywhere on your Mac</h1>
       <p class="lede">Blabla turns your voice into text, instantly, without ever leaving your Mac.</p>
+      <div class="cta-row">
+        <a class="cta" href="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla.dmg" download>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.69l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.22 2.22V1.75A.75.75 0 0 1 8 1ZM2.75 13a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H2.75Z"/></svg>
+          Download for Mac
+        </a>
+        <span class="cta-note">Free · macOS 26+ · Apple Silicon</span>
+      </div>
     </div>
     <div class="badges">
       <span class="badge fr">100 % local</span><span class="badge en">100% on-device</span>
