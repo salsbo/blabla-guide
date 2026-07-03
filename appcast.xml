@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Blabla</title>
+    <link>https://blabla.besle.org/appcast.xml</link>
+    <description>Mises à jour de Blabla</description>
+    <language>fr</language>
+    <item>
+      <title>Version 1.4.0</title>
+      <pubDate>Fri, 03 Jul 2026 19:00:28 +0200</pubDate>
+      <sparkle:version>41</sparkle:version>
+      <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Blabla 1.4.0. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla-Update.zip" sparkle:edSignature="piH87fNFDlIlPE1jyS5Hi4yLJ5vDgbxjlDIeKeK5WLqzLj3k27Nq6j+04wNoz8VZM35Nd5dGPuwxEU3a99EfCA==" length="4306354" type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
