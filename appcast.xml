@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.4.1</title>
-      <pubDate>Tue, 28 Jul 2026 19:31:58 +0200</pubDate>
-      <sparkle:version>42</sparkle:version>
-      <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
+      <title>Version 1.4.2</title>
+      <pubDate>Wed, 29 Jul 2026 12:13:55 +0200</pubDate>
+      <sparkle:version>43</sparkle:version>
+      <sparkle:shortVersionString>1.4.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Blabla 1.4.1. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla-Update.zip" sparkle:edSignature="tw3CNJjmRKlf0NevixM9l7nTqkBhhorjR+/4cxp6l7vDFEbWQj8lDv/ppLLe93aaudfmTAmj2vaCzKjDaf/ICQ==" length="4307221" type="application/octet-stream" />
+      <description><![CDATA[<p>Blabla 1.4.2. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla-Update.zip" sparkle:edSignature="v7wMZ61d+f42u/Ld4kgYudXeFblG+d/lu7SWHq7w/YlkfJlB5cXVO0FtP0vYj7q1uibEZYODtw648GLUTt77Bg==" length="4311918" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
