@@ -90,6 +90,18 @@
 
   /* hero */
   .hero { text-align: center; padding: 64px 0 36px; }
+  .publications-back {
+    display: inline-flex; align-items: center; gap: 7px; margin: 0 auto 26px;
+    padding: 8px 15px; border-radius: 999px; background: var(--accent); color: #fff;
+    font-family: var(--display); font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 8px 22px -10px rgba(234, 95, 76, 0.75);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .publications-back:hover,
+  .publications-back:focus-visible {
+    color: #fff; outline: 2px solid color-mix(in srgb, var(--accent) 36%, transparent);
+    outline-offset: 3px; transform: translateY(-1px); box-shadow: 0 12px 26px -10px rgba(234, 95, 76, 0.85);
+  }
   .applogo {
     width: 92px; height: 92px; margin: 0 auto 26px;
     border-radius: 22px;
@@ -233,6 +245,11 @@
 <div class="wrap">
 
   <header class="hero fade">
+    <a class="publications-back" href="https://www.besle.org/">
+      <span aria-hidden="true">←</span>
+      <span class="fr">Toutes les publications</span>
+      <span class="en">All publications</span>
+    </a>
     <div class="applogo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="fr">
       <h1>Dictez partout sur votre Mac</h1>
