@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.3</title>
-      <pubDate>Tue, 08 Sep 2026 19:22:48 +0200</pubDate>
-      <sparkle:version>53</sparkle:version>
-      <sparkle:shortVersionString>1.5.3</sparkle:shortVersionString>
+      <title>Version 1.5.4</title>
+      <pubDate>Tue, 08 Sep 2026 19:28:15 +0200</pubDate>
+      <sparkle:version>54</sparkle:version>
+      <sparkle:shortVersionString>1.5.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description>&lt;p&gt;Le HUD conserve sa position entre la dictée, le traitement et les messages, et mémorise vos déplacements.&lt;/p&gt;&lt;p&gt;Un contour bleu se vide et un décompte indique le temps restant avant la fermeture automatique de chaque message.&lt;/p&gt;</description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.3/Blabla-Update.zip" sparkle:edSignature="76Uksouw6VZSxeebFzdmbHstCFSjSssOIVLLdwlSpF4l/D9A3r4NJ+ChqB5uIaVq+u2xBroKhh2ufXXO93PVDw==" length="4510053" type="application/octet-stream" />
+      <description>&lt;p&gt;Le contour de décompte du HUD est deux fois plus épais, en bleu électrique foncé, avec une pointe lumineuse qui suit la progression comme une mèche.&lt;/p&gt;</description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.4/Blabla-Update.zip" sparkle:edSignature="zB/hsZ5rm5tjikcwjdr5ATaI5mKh3iPOalhivXYkZlSUKIT0HTnqe8ZZFSG4Ld0Gkek2+ZBMrFry3yJ9W+8wAw==" length="4510835" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
