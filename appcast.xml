@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.5</title>
-      <pubDate>Tue, 08 Sep 2026 19:32:51 +0200</pubDate>
-      <sparkle:version>55</sparkle:version>
-      <sparkle:shortVersionString>1.5.5</sparkle:shortVersionString>
+      <title>Version 1.5.6</title>
+      <pubDate>Tue, 08 Sep 2026 19:39:39 +0200</pubDate>
+      <sparkle:version>56</sparkle:version>
+      <sparkle:shortVersionString>1.5.6</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description>&lt;p&gt;Mèche fluide en bleu électrique avec halo blanc autour du bouton Utiliser le texte brut pendant la correction IA.&lt;/p&gt;&lt;p&gt;Après une insertion normale, le HUD disparaît directement sans message Texte prêt.&lt;/p&gt;</description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.5/Blabla-Update.zip" sparkle:edSignature="vybXvLgbre9+8jmo/5tzgmLBHpnATfR9RNxWq/I8zWRAJVCGwIed65d+UPKSzVdf9WXLfmBUDewULdjGk6YwBg==" length="4514150" type="application/octet-stream" />
+      <description>&lt;p&gt;Mèche mobile à dégradé bleu métallique, reflet clair et ombre en relief, même lorsque macOS réduit les animations.&lt;/p&gt;&lt;p&gt;Utiliser le texte brut reste disponible au moins 5 secondes avant l’insertion automatique. Un clic insère immédiatement le texte brut.&lt;/p&gt;</description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.6/Blabla-Update.zip" sparkle:edSignature="s+IydqIe7rPlijqLsYyW/AMd/RCME2GnJCP+RB7zrzDpo7Eh7QKQUNbZ3uL8CROqAaDIVhMcYnFr3Y0CM9i/Ag==" length="4517515" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
