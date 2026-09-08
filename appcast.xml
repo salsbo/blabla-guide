@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
     <title>Blabla</title>
     <link>https://blabla.besle.org/appcast.xml</link>
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.0</title>
-      <pubDate>Tue, 08 Sep 2026 18:13:22 +0200</pubDate>
-      <sparkle:version>50</sparkle:version>
-      <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
+      <title>Version 1.5.1</title>
+      <pubDate>Tue, 08 Sep 2026 18:51:39 +0200</pubDate>
+      <sparkle:version>51</sparkle:version>
+      <sparkle:shortVersionString>1.5.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Diagnostics privés, récupération et retours utilisateur.</p><ul><li>Journal technique local : toutes les tentatives, 30 jours, 10 Mo maximum.</li><li>Messages explicites et bouton « Utiliser le texte brut ».</li><li>Récupération après Échap pendant 30 secondes, copie et réinsertion.</li><li>Avis facultatifs et export manuel avec aperçu, sans texte ni audio par défaut.</li></ul><p><strong>Aucun log ni avis n’est envoyé par Blabla.</strong> L’export crée seulement un fichier local. Les échanges avec un fournisseur IA restent régis par vos réglages IA.</p>]]></description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.0/Blabla-Update.zip" sparkle:edSignature="nA8I7MPVuhsXtz+vGwMxpiL7TrMBV0VMIr1C39k4/okORa8y3VfMPAGnpn7UUt7/Kur95Bce0uGCtzrrJlSQDw==" length="4496183" type="application/octet-stream" />
+      <description>&lt;p&gt;Blabla 1.5.1&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Indicateur de dictée compact, sur une seule ligne, avec messages et boutons à droite.&lt;/li&gt;&lt;li&gt;Réglages &gt; Général &gt; Mises à jour : automatique chaque jour, toutes les semaines ou jamais.&lt;/li&gt;&lt;li&gt;Recherche manuelle disponible dans tous les modes ; choix conservé entre les lancements.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Aucun log de dictée n’est envoyé lors de la recherche des mises à jour.&lt;/p&gt;</description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.1/Blabla-Update.zip" sparkle:edSignature="IXZNpMJs5CdPVwV/+fH7KSE3GMmo0Byz3wWCWHB2Ox1y6W78NNCDyZth0OuGGsAuYSgwymOhjolI8NGDhhoNAg==" length="4500369" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
