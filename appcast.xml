@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.1</title>
-      <pubDate>Tue, 08 Sep 2026 18:51:39 +0200</pubDate>
-      <sparkle:version>51</sparkle:version>
-      <sparkle:shortVersionString>1.5.1</sparkle:shortVersionString>
+      <title>Version 1.5.2</title>
+      <pubDate>Tue, 08 Sep 2026 18:57:05 +0200</pubDate>
+      <sparkle:version>52</sparkle:version>
+      <sparkle:shortVersionString>1.5.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description>&lt;p&gt;Blabla 1.5.1&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Indicateur de dictée compact, sur une seule ligne, avec messages et boutons à droite.&lt;/li&gt;&lt;li&gt;Réglages &gt; Général &gt; Mises à jour : automatique chaque jour, toutes les semaines ou jamais.&lt;/li&gt;&lt;li&gt;Recherche manuelle disponible dans tous les modes ; choix conservé entre les lancements.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Aucun log de dictée n’est envoyé lors de la recherche des mises à jour.&lt;/p&gt;</description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.1/Blabla-Update.zip" sparkle:edSignature="IXZNpMJs5CdPVwV/+fH7KSE3GMmo0Byz3wWCWHB2Ox1y6W78NNCDyZth0OuGGsAuYSgwymOhjolI8NGDhhoNAg==" length="4500369" type="application/octet-stream" />
+      <description>&lt;p&gt;Après Échap, un bouton bleu « Récupérer » permet de relancer la transcription pendant 30 secondes. Le bandeau reste lisible en mode sombre.&lt;/p&gt;&lt;p&gt;L’audio de récupération reste en mémoire sur votre Mac. Aucun log ni avis n’est envoyé par Blabla.&lt;/p&gt;</description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.2/Blabla-Update.zip" sparkle:edSignature="APEgG4STZqM32EeCJW0vqQrEM287Z3XWO/iGYrDcV1XmtIVeJxJN735ab/UnQiXaLzABL9nTKn26syI6VNtPAQ==" length="4503728" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
