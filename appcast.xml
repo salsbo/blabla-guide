@@ -1,18 +1,18 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Blabla</title>
     <link>https://blabla.besle.org/appcast.xml</link>
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.8</title>
-      <pubDate>Tue, 08 Sep 2026 21:42:55 +0200</pubDate>
-      <sparkle:version>58</sparkle:version>
-      <sparkle:shortVersionString>1.5.8</sparkle:shortVersionString>
+      <title>Version 1.5.9</title>
+      <pubDate>Wed, 09 Sep 2026 14:18:49 +0200</pubDate>
+      <sparkle:version>59</sparkle:version>
+      <sparkle:shortVersionString>1.5.9</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description>&lt;p&gt;Insertion protégée contre les changements de destination et préservation complète du presse-papier.&lt;/p&gt;&lt;p&gt;Diagnostics audio et Whisper enrichis sans texte ni enregistrement. Envoi volontaire d’un rapport technique aux développeurs, avec aperçu et confirmation. Aucun texte dicté ni audio dans le rapport ; aucun envoi automatique.&lt;/p&gt;</description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.8/Blabla-Update.zip" sparkle:edSignature="GCjngIFnOyRWqmTHMB6ZWwwv2VXoGESy8a/DThUIo1d3BuvMOQrODP5jeGfbUejX2UpNL3KK0/n85dOeLnwPBg==" length="4581798" type="application/octet-stream" />
+      <description><![CDATA[<p>Blabla 1.5.9. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/latest/download/Blabla-Update.zip" sparkle:edSignature="WTIu/mgWRZ4KrvE8c/jtBk//k02gq1s/mQQj4RK0UJR+BlW/aNv4w1Bm5EbkdFMV0iaKyjyMwnpoMG7eL3USDg==" length="4580773" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
