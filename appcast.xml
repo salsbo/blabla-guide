@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.17</title>
-      <pubDate>Wed, 23 Sep 2026 17:55:19 +0200</pubDate>
-      <sparkle:version>67</sparkle:version>
-      <sparkle:shortVersionString>1.5.17</sparkle:shortVersionString>
+      <title>Version 1.5.18</title>
+      <pubDate>Wed, 23 Sep 2026 18:16:16 +0200</pubDate>
+      <sparkle:version>68</sparkle:version>
+      <sparkle:shortVersionString>1.5.18</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Correction des dictées sans texte malgré un son enregistré.</p><ul><li>Reprise automatique sur des morceaux plus courts lorsque Whisper renvoie un résultat vide.</li><li>Conservation séparée et rejeu de la dernière captation échouée, pendant 24 heures si cette option est activée.</li><li>Message précisant quand le son est présent mais que la transcription a échoué.</li></ul>]]></description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.17/Blabla-Update.zip" sparkle:edSignature="tQscWl+xalGC1c5Ff96xkdKQgwC0d0qQx6hBUsea2AqIQxMVljJGBrXC/jffOsYslPrSawQrrzg9uHbScbhFDw==" length="4542445" type="application/octet-stream" />
+      <description><![CDATA[<p>Blabla 1.5.18. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.18/Blabla-Update.zip" sparkle:edSignature="3BKTQxKZYQj/xplNqJ+oTYb2Gpzra6/gY8PvjyNCdvw5p7wDuDK5zmIw+saC1fQUVmVLUKOxWrMEiMj9eUO2Cw==" length="4544800" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
