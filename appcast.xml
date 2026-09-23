@@ -11,7 +11,7 @@
       <sparkle:version>68</sparkle:version>
       <sparkle:shortVersionString>1.5.18</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Blabla 1.5.18. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <description><![CDATA[<p>Le parcours des autorisations est corrigé.</p><ul><li>Blabla attend sa fermeture complète avant de se relancer.</li><li>La relance reste disponible même si une autorisation n’est pas encore reconnue.</li><li>Le dépannage réinitialise uniquement l’autorisation choisie et conserve les deux autres.</li><li>Les versions de développement sont séparées de l’application distribuée.</li></ul>]]></description>
       <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.18/Blabla-Update.zip" sparkle:edSignature="3BKTQxKZYQj/xplNqJ+oTYb2Gpzra6/gY8PvjyNCdvw5p7wDuDK5zmIw+saC1fQUVmVLUKOxWrMEiMj9eUO2Cw==" length="4544800" type="application/octet-stream" />
     </item>
   </channel>
