@@ -11,7 +11,7 @@
       <sparkle:version>67</sparkle:version>
       <sparkle:shortVersionString>1.5.17</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Blabla 1.5.17. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <description><![CDATA[<p>Correction des dictées sans texte malgré un son enregistré.</p><ul><li>Reprise automatique sur des morceaux plus courts lorsque Whisper renvoie un résultat vide.</li><li>Conservation séparée et rejeu de la dernière captation échouée, pendant 24 heures si cette option est activée.</li><li>Message précisant quand le son est présent mais que la transcription a échoué.</li></ul>]]></description>
       <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.17/Blabla-Update.zip" sparkle:edSignature="tQscWl+xalGC1c5Ff96xkdKQgwC0d0qQx6hBUsea2AqIQxMVljJGBrXC/jffOsYslPrSawQrrzg9uHbScbhFDw==" length="4542445" type="application/octet-stream" />
     </item>
   </channel>
