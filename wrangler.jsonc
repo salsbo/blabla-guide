@@ -1,0 +1,6 @@
+{
+  "name": "blabla-besle-org",
+  "compatibility_date": "2026-09-01",
+  "assets": { "directory": "./" },
+  "routes": [{ "pattern": "blabla.besle.org/*", "zone_name": "besle.org" }]
+}
