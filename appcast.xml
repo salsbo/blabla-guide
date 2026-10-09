@@ -6,13 +6,13 @@
     <description>Mises à jour de Blabla</description>
     <language>fr</language>
     <item>
-      <title>Version 1.5.18</title>
-      <pubDate>Wed, 23 Sep 2026 18:16:16 +0200</pubDate>
-      <sparkle:version>68</sparkle:version>
-      <sparkle:shortVersionString>1.5.18</sparkle:shortVersionString>
+      <title>Version 1.6.0</title>
+      <pubDate>Fri, 09 Oct 2026 13:28:19 +0200</pubDate>
+      <sparkle:version>69</sparkle:version>
+      <sparkle:shortVersionString>1.6.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Le parcours des autorisations est corrigé.</p><ul><li>Blabla attend sa fermeture complète avant de se relancer.</li><li>La relance reste disponible même si une autorisation n’est pas encore reconnue.</li><li>Le dépannage réinitialise uniquement l’autorisation choisie et conserve les deux autres.</li><li>Les versions de développement sont séparées de l’application distribuée.</li></ul>]]></description>
-      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.5.18/Blabla-Update.zip" sparkle:edSignature="3BKTQxKZYQj/xplNqJ+oTYb2Gpzra6/gY8PvjyNCdvw5p7wDuDK5zmIw+saC1fQUVmVLUKOxWrMEiMj9eUO2Cw==" length="4544800" type="application/octet-stream" />
+      <description><![CDATA[<p>Blabla 1.6.0. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.6.0/Blabla-Update.zip" sparkle:edSignature="2sqrjQ+Qbi/big3cKdSjSqu4QZc5Ayq4fzlbLTOdU6mm+fOV8Vqz6dmO6dL1/5CKh0Sc8sUlgYnUPuY8fnOMCg==" length="5615157" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
