@@ -11,7 +11,7 @@
       <sparkle:version>69</sparkle:version>
       <sparkle:shortVersionString>1.6.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[<p>Blabla 1.6.0. Détails sur <a href="https://blabla.besle.org">blabla.besle.org</a>.</p>]]></description>
+      <description><![CDATA[<p>Blabla 1.6.0 (69) ajoute le mode CR échange local.</p><ul><li>Démarrez la dictée comme d’habitude, puis maintenez R deux secondes dans les dix premières secondes pour passer en échange, en conservant le début de l’audio.</li><li>Un appui sur la touche de dictée arrête l’échange. Le maintien et la fenêtre de bascule sont réglables dans Trigger.</li><li>Intervenants A/B/C renommables, audio original conservé, texte brut, correction et compte rendu locaux séparés.</li><li>Limites proposées de 1 à 8 heures. Correction et compte rendu via Apple Intelligence lorsqu’il est disponible, sans repli cloud.</li></ul>]]></description>
       <enclosure url="https://github.com/salsbo/blabla-guide/releases/download/v1.6.0/Blabla-Update.zip" sparkle:edSignature="2sqrjQ+Qbi/big3cKdSjSqu4QZc5Ayq4fzlbLTOdU6mm+fOV8Vqz6dmO6dL1/5CKh0Sc8sUlgYnUPuY8fnOMCg==" length="5615157" type="application/octet-stream" />
     </item>
   </channel>
