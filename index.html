@@ -3,355 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<meta name="description" content="Blabla — guide utilisateur / user guide. Dictee locale pour Mac.">
-<title>Blabla — Guide / User Guide</title>
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap");
-
-  :root {
-    --paper: #ffffff;
-    --ink: #0a0f0d;
-    --muted: #5b6560;
-    --line: #e4e7e3;
-    --accent: #00c16a;
-    --accent-deep: #0a3d2c;
-    --pulse: #2de38f;
-    --card: #f5f7f4;
-    --surface: #f4f5f2;
-    --kbd-bg: #ffffff;
-    --kbd-shadow: rgba(10, 15, 13, 0.18);
-    --header: #0a0f0d;
-    --on-header: #f4f5f2;
-    --shadow-1: 0 8px 30px rgba(10, 15, 13, 0.08);
-    --shadow-2: 0 20px 48px rgba(10, 15, 13, 0.16);
-    --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-    --body: "Archivo", ui-sans-serif, system-ui, sans-serif;
-    --mono: "Space Mono", ui-monospace, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #0a0f0d;
-      --ink: #f4f5f2;
-      --muted: #aab5af;
-      --line: rgba(244, 245, 242, 0.14);
-      --accent: #2de38f;
-      --accent-deep: #2de38f;
-      --card: #121815;
-      --surface: #18201c;
-      --kbd-bg: #18201c;
-      --kbd-shadow: rgba(0, 0, 0, 0.5);
-    }
-  }
-  :root[data-theme="light"] {
-    --paper: #ffffff; --ink: #0a0f0d; --muted: #5b6560; --line: #e4e7e3;
-    --accent: #00c16a; --accent-deep: #0a3d2c; --card: #f5f7f4; --surface: #f4f5f2;
-    --kbd-bg: #ffffff; --kbd-shadow: rgba(10,15,13,0.18);
-  }
-  :root[data-theme="dark"] {
-    --paper: #0a0f0d; --ink: #f4f5f2; --muted: #aab5af; --line: rgba(244,245,242,0.14);
-    --accent: #2de38f; --accent-deep: #2de38f; --card: #121815; --surface: #18201c;
-    --kbd-bg: #18201c; --kbd-shadow: rgba(0,0,0,0.5);
-  }
-
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding-top: 76px;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* language switching */
-  :root[data-lang="fr"] .en { display: none; }
-  :root[data-lang="en"] .fr { display: none; }
-
-  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
-
-  /* top bar */
-  .topbar {
-    position: fixed; inset: 0 0 auto; z-index: 20;
-    min-height: 76px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px max(24px, calc((100vw - 1080px) / 2));
-    background: var(--header); color: var(--on-header);
-    border-bottom: 1px solid rgba(244, 245, 242, 0.12);
-  }
-  .brand { display: flex; align-items: center; gap: 10px; color: var(--on-header); font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; }
-  .brand .mark { width: 12px; height: 12px; border-radius: 2px; flex: none; background: var(--accent); box-shadow: 0 0 0 5px rgba(0, 193, 106, 0.12); }
-  .controls { display: flex; gap: 8px; align-items: center; }
-  .seg { display: inline-flex; background: rgba(244,245,242,0.08); border: 1px solid rgba(244,245,242,0.16); border-radius: 999px; padding: 2px; }
-  .seg button {
-    font: inherit; font-size: 13px; font-weight: 600;
-    border: 0; background: transparent; color: #aab5af;
-    padding: 5px 12px; border-radius: 999px; cursor: pointer;
-  }
-  .seg button[aria-pressed="true"] { background: var(--accent); color: #0a0f0d; }
-  .iconbtn {
-    font-size: 15px; line-height: 1; border: 1px solid rgba(244,245,242,0.16); background: rgba(244,245,242,0.08);
-    color: var(--on-header); width: 34px; height: 30px; border-radius: 999px; cursor: pointer;
-  }
-  .seg button:focus-visible, .iconbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-  /* hero */
-  .hero { text-align: center; padding: 88px 0 56px; }
-  .publications-back {
-    display: inline-flex; align-items: center; gap: 7px; margin: 0 auto 26px;
-    padding: 8px 15px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--accent-deep);
-    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-decoration: none; text-transform: uppercase;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .publications-back:hover,
-  .publications-back:focus-visible {
-    color: #0a0f0d; background: var(--accent); border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 36%, transparent);
-    outline-offset: 3px; transform: translateY(-1px); box-shadow: var(--shadow-1);
-  }
-  .applogo {
-    width: 96px; height: 96px; margin: 0 auto 30px;
-    border: 1px solid rgba(244,245,242,0.12); border-radius: 18px;
-    background: #0a0f0d;
-    box-shadow: 0 18px 42px -18px rgba(0, 193, 106, 0.65);
-    display: flex; align-items: center; justify-content: center; gap: 4px;
-  }
-  .applogo i {
-    display: block; width: 5px; border-radius: 3px; background: var(--pulse);
-  }
-  .applogo i:nth-child(1) { height: 20px; }
-  .applogo i:nth-child(2) { height: 34px; }
-  .applogo i:nth-child(3) { height: 48px; }
-  .applogo i:nth-child(4) { height: 26px; }
-  .applogo i:nth-child(5) { height: 40px; }
-  .applogo i:nth-child(6) { height: 16px; }
-  h1 {
-    font-family: var(--display); font-weight: 700; letter-spacing: -0.04em;
-    font-size: clamp(3.1rem, 8vw, 6rem); line-height: .98; margin: 0 0 20px;
-    text-wrap: balance;
-  }
-  .lede { font-size: clamp(1.1rem, 2.4vw, 1.35rem); color: var(--muted); max-width: 38ch; margin: 0 auto; text-wrap: balance; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: center; align-items: center; margin-top: 30px; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-family: var(--display); font-weight: 700; font-size: 1.02rem;
-    background: var(--accent); color: #0a0f0d; text-decoration: none;
-    padding: 13px 24px; border-radius: 10px;
-    box-shadow: 0 12px 28px -14px rgba(0, 193, 106, 0.75);
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .cta:hover, .cta:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 34px -14px rgba(0, 193, 106, 0.9); outline: 2px solid var(--accent); outline-offset: 3px; }
-  .cta svg { width: 18px; height: 18px; fill: currentColor; }
-  .cta-note { font-size: 0.9rem; color: var(--muted); }
-  .dlcount { margin: 16px 0 0; font-size: 0.95rem; color: var(--muted); }
-  .dlcount .dlnum { font-family: var(--display); font-weight: 700; color: var(--accent-deep); font-variant-numeric: tabular-nums; }
-  .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
-  .badge {
-    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--accent-deep);
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-    padding: 5px 12px; border-radius: 999px;
-  }
-
-  /* waveform divider */
-  .wave { display: flex; align-items: center; justify-content: center; gap: 4px; height: 34px; margin: 8px 0 18px; }
-  .wave i { width: 3px; border-radius: 3px; background: var(--accent); }
-
-  /* sections */
-  section { padding: 48px 0; border-top: 1px solid var(--line); }
-  .eyebrow {
-    font-family: var(--mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em;
-    color: var(--accent-deep); margin: 0 0 8px;
-  }
-  h2 {
-    font-family: var(--display); font-weight: 600; font-size: clamp(1.9rem, 4vw, 2.65rem); letter-spacing: -0.035em;
-    margin: 0 0 4px; line-height: 1.15; text-wrap: balance;
-  }
-  h3 { font-family: var(--display); font-weight: 600; font-size: 1.18rem; margin: 28px 0 6px; letter-spacing: -0.02em; }
-  p { margin: 12px 0; }
-  a { color: var(--accent-deep); text-underline-offset: 2px; }
-
-  /* numbered steps */
-  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 16px 0; }
-  ol.steps > li {
-    counter-increment: s; position: relative; padding: 4px 0 16px 46px; margin: 0;
-  }
-  ol.steps > li::before {
-    content: counter(s); position: absolute; left: 0; top: 2px;
-    width: 30px; height: 30px; border-radius: 50%;
-    background: var(--accent); color: #fff; font-family: var(--display); font-weight: 700;
-    display: flex; align-items: center; justify-content: center; font-size: 15px;
-  }
-  ol.steps > li:not(:last-child)::after {
-    content: ""; position: absolute; left: 14px; top: 34px; bottom: 4px; width: 2px;
-    background: var(--line);
-  }
-
-  ul.plain { padding-left: 20px; margin: 12px 0; }
-  ul.plain li { margin: 7px 0; }
-
-  /* keyboard keys */
-  kbd {
-    font-family: var(--mono); font-size: 0.86em; font-weight: 600;
-    background: var(--kbd-bg); color: var(--ink);
-    border: 1px solid var(--line); border-bottom-width: 2px;
-    border-radius: 6px; padding: 2px 7px; box-shadow: 0 1px 0 var(--kbd-shadow);
-    white-space: nowrap;
-  }
-
-  /* callout card */
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    padding: 22px 24px; margin: 22px 0; box-shadow: var(--shadow-1);
-  }
-  .card.accent { border-color: color-mix(in srgb, var(--accent) 34%, transparent); background: color-mix(in srgb, var(--accent) 7%, var(--card)); }
-  .card p:first-child { margin-top: 0; }
-  .card p:last-child { margin-bottom: 0; }
-  .card .tag { font-family: var(--mono); font-weight: 700; color: var(--accent-deep); font-size: 0.8rem; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 6px; }
-
-  /* mini HUD illustration */
-  .hud {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: #0a0f0d; border: 1px solid rgba(244,245,242,.12); border-radius: 12px; padding: 9px 15px;
-    box-shadow: var(--shadow-1); margin: 6px 0;
-  }
-  .hud .grip { color: #8f9c96; font-size: 12px; }
-  .hud .vu { display: inline-flex; gap: 2.5px; align-items: center; height: 15px; }
-  .hud .vu i { width: 3px; border-radius: 2px; background: var(--pulse); }
-  .hud .vu i:nth-child(1){height:5px}.hud .vu i:nth-child(2){height:11px}.hud .vu i:nth-child(3){height:8px}.hud .vu i:nth-child(4){height:13px}.hud .vu i:nth-child(5){height:7px}
-  .hud .t { font-family: var(--display); font-weight: 700; font-size: 13px; color: #f4f5f2; font-variant-numeric: tabular-nums; }
-  .hud .dots { display: inline-flex; gap: 4px; }
-  .hud .dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--pulse); }
-  .hud .dots i:nth-child(2){opacity:.55}.hud .dots i:nth-child(3){opacity:.28}
-
-  footer { border-top: 1px solid var(--line); padding: 42px 0 70px; color: var(--muted); font-size: 0.94rem; }
-  footer strong { color: var(--ink); }
-
-  .updates { text-align: center; }
-  .updates > div > p { max-width: 650px; margin-inline: auto; color: var(--muted); }
-  .updates-form { max-width: 620px; margin: 24px auto 0; }
-  .updates-fields { display: flex; gap: 10px; }
-  .updates-fields input[type="email"] {
-    min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: 10px;
-    background: var(--card); color: var(--ink); font: inherit; padding: 12px 14px;
-  }
-  .updates-fields input[type="email"]:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .updates-fields button {
-    border: 0; border-radius: 10px; background: var(--accent); color: #0a0f0d;
-    cursor: pointer; font-family: var(--display); font-size: .95rem; font-weight: 700; padding: 12px 18px;
-  }
-  .updates-fields button:disabled { cursor: wait; opacity: .6; }
-  .updates-privacy { color: var(--muted); font-size: .78rem; line-height: 1.5; }
-  .updates-status { min-height: 1.5em; color: var(--accent-deep); font-size: .9rem; }
-  .updates-hp { position: absolute; left: -10000px; }
-
-  .muted { color: var(--muted); }
-  @media (prefers-reduced-motion: no-preference) {
-    .fade { opacity: 0; transform: translateY(8px); animation: rise 0.6s ease forwards; }
-    @keyframes rise { to { opacity: 1; transform: none; } }
-  }
-  @media (max-width: 560px) {
-    body { padding-top: 68px; }
-    .topbar { min-height: 68px; padding: 12px 18px; }
-    .wrap { padding-inline: 18px; }
-    .hero { padding-top: 60px; }
-    .brand { font-size: 15px; }
-    .seg button { padding-inline: 10px; }
-    h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
-    section { padding-block: 40px; }
-    .cta-row { flex-direction: column; }
-    .updates-fields { flex-direction: column; }
-  }
-</style>
+<meta name="color-scheme" content="light">
+<title>Blabla : la dictée locale pour Mac · Besle.org</title>
+<meta name="description" content="Blabla transcrit votre voix en texte, instantanément, sans jamais quitter votre Mac. Guide et téléchargement.">
+<link rel="canonical" href="https://blabla.besle.org/">
+<meta property="og:title" content="Blabla : la dictée locale pour Mac">
+<meta property="og:description" content="Blabla transcrit votre voix en texte, instantanément, sans jamais quitter votre Mac. Guide et téléchargement.">
+<meta property="og:url" content="https://blabla.besle.org/">
+<meta property="og:type" content="article">
+<meta property="article:author" content="Julien Robert">
+<meta property="og:image" content="https://blabla.besle.org/images/blabla-demo.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<script>document.documentElement.setAttribute('data-lang', (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr');</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="topbar">
-  <div class="brand">
-    <span class="mark"></span>
-    Blabla
+<header class="site-header"><div class="header-inner shell">
+  <div class="header-lang" role="group" aria-label="Langue / Language">
+    <button type="button" class="social-link" id="fr" aria-pressed="true" onclick="setLang('fr')">FR</button>
+    <button type="button" class="social-link" id="en" aria-pressed="false" onclick="setLang('en')">EN</button>
   </div>
-  <div class="controls">
-    <div class="seg" role="group" aria-label="Language">
-      <button id="fr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-      <button id="en" aria-pressed="false" onclick="setLang('en')">EN</button>
-    </div>
-    <button class="iconbtn" aria-label="Theme" onclick="toggleTheme()">◐</button>
+  <a href="https://www.besle.org/" class="banner-title">Julien Robert <span class="banner-role"><span class="fr">Des idées. Des années de terrain.</span><span class="en">Ideas. Years in the field.</span></span></a>
+  <nav class="header-socials" aria-label="Réseaux sociaux de Julien Robert"><a class="social-link" href="https://www.linkedin.com/in/julien-r-76b00122" target="_blank" rel="noreferrer" aria-label="Julien Robert sur LinkedIn">in</a><a class="social-link" href="https://x.com/jnrt20151" target="_blank" rel="noreferrer" aria-label="Julien Robert sur X">X</a></nav>
+</div></header>
+<main><article class="publication-article publication-article--light">
+<header class="article-header shell">
+  <div class="article-kicker">
+    <p class="eyebrow"><span class="fr">Productivité locale</span><span class="en">Local productivity</span></p>
+    <a href="https://www.besle.org/" class="back-link">← <span class="fr">Toutes les publications</span><span class="en">All publications</span></a>
   </div>
-</div>
-
-<div class="wrap">
-
-  <header class="hero fade">
-    <a class="publications-back" href="https://www.besle.org/">
-      <span aria-hidden="true">←</span>
-      <span class="fr">Toutes les publications</span>
-      <span class="en">All publications</span>
-    </a>
-    <div class="applogo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="fr">
-      <h1>Dictez partout sur votre Mac</h1>
-      <p class="lede">Blabla transcrit votre voix en texte, instantanément, sans jamais quitter votre Mac.</p>
-      <div class="cta-row">
-        <a class="cta" href="https://go.besle.org/go/apps/blabla/download?source=blabla-site">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.69l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.22 2.22V1.75A.75.75 0 0 1 8 1ZM2.75 13a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H2.75Z"/></svg>
-          Télécharger pour Mac
-        </a>
-        <span class="cta-note">Gratuit · macOS 26+ · Apple Silicon</span>
+  <h1><span class="fr">Blabla : la dictée locale pour Mac</span><span class="en">Blabla: local dictation for Mac</span></h1>
+  <p class="article-summary"><span class="fr">Blabla transcrit votre voix en texte, instantanément, sans jamais quitter votre Mac.</span><span class="en">Blabla turns your voice into text, instantly, without ever leaving your Mac.</span></p>
+  <div class="article-meta">
+    <span class="fr">29 juillet 2026</span><span class="en">July 29, 2026</span><span>·</span><span>Julien Robert</span><span>·</span><span>Version 1.6.3</span><span>·</span><span class="fr">Gratuit</span><span class="en">Free</span><span>·</span><span>macOS 26+</span><span>·</span><span>Apple Silicon</span>
+  </div>
+  <div class="article-demo">
+    <a class="download-link" href="https://go.besle.org/go/apps/blabla/download?source=blabla-site"><span aria-hidden="true">↓</span><span class="fr">Télécharger pour Mac</span><span class="en">Download for Mac</span></a>
+    <button type="button" class="video-link" id="video-open" aria-haspopup="dialog"><span class="video-play" aria-hidden="true">▶</span><span class="fr">Voir la démo, 42 s</span><span class="en">Watch the demo, 42 s, in French</span></button>
+    <p class="download-count" id="dlcount" hidden><span class="fr">Déjà <span class="dlnum">…</span> téléchargements</span><span class="en">Already <span class="dlnum">…</span> downloads</span></p>
+    <dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title">
+      <div class="video-dialog-panel">
+        <header class="video-dialog-header">
+          <p id="video-dialog-title">Blabla : la dictée locale pour Mac</p>
+          <button type="button" class="video-dialog-close" id="video-close"><span class="fr">Quitter la vidéo</span><span class="en">Close the video</span> <span aria-hidden="true">×</span></button>
+        </header>
+        <div class="video-dialog-media">
+          <video src="videos/blabla-demo.mp4" controls playsinline preload="metadata">
+            <track kind="captions" src="videos/blabla-demo.fr.vtt" srclang="fr" label="Français">
+            Votre navigateur ne permet pas de lire cette vidéo.
+          </video>
+          <div class="video-caption-band" aria-label="Sous-titres français"><p> </p></div>
+        </div>
+        <p class="video-dialog-help"><span class="fr">Fermer ou appuyer sur Échap pour revenir à la page.</span><span class="en">Close or press Esc to return to the page.</span></p>
+      </div>
+    </dialog>
+  </div>
+</header>
+<div class="article-layout shell">
+  <aside class="article-aside" aria-label="Informations et partage">
+    <div>
+      <p class="article-aside-label"><span class="fr">Sujets</span><span class="en">Topics</span></p>
+      <div class="article-tags">
+        <span class="article-tag">Blabla</span><span class="article-tag">macOS</span><span class="article-tag fr">Dictée</span><span class="article-tag en">Dictation</span><span class="article-tag fr">100 % local</span><span class="article-tag en">100% on-device</span><span class="article-tag fr">Fonctionne hors ligne</span><span class="article-tag en">Works offline</span>
       </div>
     </div>
-    <div class="en">
-      <h1>Dictate anywhere on your Mac</h1>
-      <p class="lede">Blabla turns your voice into text, instantly, without ever leaving your Mac.</p>
-      <div class="cta-row">
-        <a class="cta" href="https://go.besle.org/go/apps/blabla/download?source=blabla-site">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.69l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.22 2.22V1.75A.75.75 0 0 1 8 1ZM2.75 13a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H2.75Z"/></svg>
-          Download for Mac
-        </a>
-        <span class="cta-note">Free · macOS 26+ · Apple Silicon</span>
+    <div>
+      <p class="article-aside-label"><span class="fr">Partager</span><span class="en">Share</span></p>
+      <div class="share-links">
+        <a href="https://x.com/intent/post?url=https%3A%2F%2Fblabla.besle.org%2F&amp;text=Blabla%20%3A%20la%20dict%C3%A9e%20locale%20pour%20Mac" target="_blank" rel="noreferrer"><span class="fr">Sur X</span><span class="en">On X</span> ↗</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblabla.besle.org%2F" target="_blank" rel="noreferrer"><span class="fr">Sur LinkedIn</span><span class="en">On LinkedIn</span> ↗</a>
       </div>
     </div>
-    <div class="badges">
-      <span class="badge fr">100 % local</span><span class="badge en">100% on-device</span>
-      <span class="badge fr">Fonctionne hors ligne</span><span class="badge en">Works offline</span>
-      <span class="badge fr">Apple Silicon · macOS 26+</span><span class="badge en">Apple Silicon · macOS 26+</span>
-      <span class="badge">Version 1.6.3</span>
-    </div>
-    <p class="dlcount" id="dlcount" hidden>
-      <span class="fr">Déjà <span class="dlnum">—</span> téléchargements</span>
-      <span class="en">Already <span class="dlnum">—</span> downloads</span>
-    </p>
-  </header>
-
-  <div class="wave" aria-hidden="true">
-    <i style="height:8px"></i><i style="height:18px"></i><i style="height:28px"></i><i style="height:14px"></i><i style="height:22px"></i><i style="height:10px"></i><i style="height:24px"></i><i style="height:16px"></i><i style="height:6px"></i>
-  </div>
-
-  <!-- ABOUT -->
-  <section>
-    <div class="fr">
-      <p class="eyebrow">Ce que c'est</p>
-      <h2>Une dictée privée, sur votre machine</h2>
-      <p>Blabla vit dans votre barre de menu. Vous maintenez une touche, vous parlez, et le texte s'insère là où se trouve votre curseur — dans Mail, Slack, un navigateur, un éditeur, n'importe quel champ texte.</p>
-      <p>La transcription tourne entièrement sur le Neural Engine de votre Mac. <strong>Votre voix n'est jamais envoyée vers un serveur.</strong> Après le téléchargement initial du modèle, tout fonctionne même sans connexion.</p>
-    </div>
-    <div class="en">
-      <p class="eyebrow">What it is</p>
-      <h2>Private dictation, on your machine</h2>
-      <p>Blabla lives in your menu bar. Hold a key, speak, and the text is inserted wherever your cursor is — in Mail, Slack, a browser, an editor, any text field.</p>
-      <p>Transcription runs entirely on your Mac's Neural Engine. <strong>Your voice is never sent to a server.</strong> After the one-time model download, everything works even offline.</p>
-    </div>
-  </section>
+  </aside>
+  <div class="article-body">
+    <p class="lead fr">Blabla vit dans votre barre de menu. Vous maintenez une touche, vous parlez, et le texte s’insère là où se trouve votre curseur : dans Mail, Slack, un navigateur, un éditeur, n’importe quel champ texte.</p>
+    <p class="lead en">Blabla lives in your menu bar. Hold a key, speak, and the text is inserted wherever your cursor is: in Mail, Slack, a browser, an editor, any text field.</p>
+    <figure class="article-image">
+      <div class="article-image-frame"><img src="images/blabla-demo.jpg" alt="Image de la démonstration : une fenêtre d'éditeur de texte sur Mac contient la phrase dictée, « Avec Blabla, je parle naturellement et mon texte apparaît directement dans toutes mes applications. »" width="1280" height="720" loading="eager"></div>
+      <figcaption><span class="fr">Image tirée de la démonstration : au relâchement de la touche, le texte dicté arrive dans l’application active.</span><span class="en">Frame from the demo: when the key is released, the dictated text lands in the active app.</span></figcaption>
+    </figure>
+    <section>
+      <div class="fr">
+        <h2>Une dictée privée, sur votre machine</h2>
+        <p>La transcription tourne entièrement sur le Neural Engine de votre Mac. <strong>Votre voix n’est jamais envoyée vers un serveur.</strong> Après le téléchargement initial du modèle, tout fonctionne même sans connexion.</p>
+        <blockquote class="pullquote">Votre voix reste sur votre Mac.</blockquote>
+      </div>
+      <div class="en">
+        <h2>Private dictation, on your machine</h2>
+        <p>Transcription runs entirely on your Mac’s Neural Engine. <strong>Your voice is never sent to a server.</strong> After the one-time model download, everything works even offline.</p>
+        <blockquote class="pullquote">Your voice stays on your Mac.</blockquote>
+      </div>
+    </section>
 
   <!-- INSTALL -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Étape 1</p>
-      <h2>Installer Blabla</h2>
+      <h2>Étape 1 : installer Blabla</h2>
       <ol class="steps">
         <li>Ouvrez le fichier <strong>.dmg</strong> téléchargé, puis glissez <strong>Blabla</strong> dans votre dossier <strong>Applications</strong>.</li>
-        <li>Lancez Blabla. Une icône apparaît dans la <strong>barre de menu</strong> (en haut à droite). L'app n'apparaît pas dans le Dock, c'est normal.</li>
-        <li>Au premier lancement, Blabla télécharge son modèle de transcription (~1,5 Go). Cela ne se produit qu'une seule fois. Suivez la progression dans <strong>Réglages → Transcription</strong>.</li>
+        <li>Lancez Blabla. Une icône apparaît dans la <strong>barre de menu</strong> (en haut à droite). L’app n’apparaît pas dans le Dock, c’est normal.</li>
+        <li>Au premier lancement, Blabla télécharge son modèle de transcription (~1,5 Go). Cela ne se produit qu’une seule fois. Suivez la progression dans <strong>Réglages → Transcription</strong>.</li>
       </ol>
       <div class="card">
         <span class="tag">Configuration requise</span>
@@ -359,11 +112,10 @@
       </div>
     </div>
     <div class="en">
-      <p class="eyebrow">Step 1</p>
-      <h2>Install Blabla</h2>
+      <h2>Step 1: install Blabla</h2>
       <ol class="steps">
         <li>Open the downloaded <strong>.dmg</strong>, then drag <strong>Blabla</strong> into your <strong>Applications</strong> folder.</li>
-        <li>Launch Blabla. An icon appears in the <strong>menu bar</strong> (top-right). The app doesn't show in the Dock — that's expected.</li>
+        <li>Launch Blabla. An icon appears in the <strong>menu bar</strong> (top-right). The app doesn’t show in the Dock, that’s expected.</li>
         <li>On first launch, Blabla downloads its transcription model (~1.5 GB). This happens only once. Track progress in <strong>Settings → Transcription</strong>.</li>
       </ol>
       <div class="card">
@@ -376,27 +128,25 @@
   <!-- PERMISSIONS -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Étape 2</p>
-      <h2>Accorder les autorisations</h2>
-      <p>Un assistant s'ouvre au premier lancement. Blabla a besoin de trois autorisations macOS pour fonctionner :</p>
+      <h2>Étape 2 : accorder les autorisations</h2>
+      <p>Un assistant s’ouvre au premier lancement. Blabla a besoin de trois autorisations macOS pour fonctionner :</p>
       <ul class="plain">
-        <li><strong>Microphone</strong> — pour vous entendre. Une demande apparaît automatiquement.</li>
-        <li><strong>Accessibilité</strong> — pour écrire le texte transcrit dans l'app active.</li>
-        <li><strong>Surveillance de l'entrée</strong> — pour détecter votre touche de dictée.</li>
+        <li><strong>Microphone</strong> : pour vous entendre. Une demande apparaît automatiquement.</li>
+        <li><strong>Accessibilité</strong> : pour écrire le texte transcrit dans l’app active.</li>
+        <li><strong>Surveillance de l’entrée</strong> : pour détecter votre touche de dictée.</li>
       </ul>
       <div class="card accent">
         <span class="tag">Bon à savoir</span>
-        <p>Pour l'Accessibilité et la Surveillance de l'entrée, activez Blabla dans <strong>Réglages Système → Confidentialité et sécurité</strong>, puis cliquez « Re-vérifier ». Selon la version de macOS, un <strong>redémarrage de l'app</strong> peut être nécessaire pour que la Surveillance de l'entrée prenne effet.</p>
+        <p>Pour l’Accessibilité et la Surveillance de l’entrée, activez Blabla dans <strong>Réglages Système → Confidentialité et sécurité</strong>, puis cliquez « Re-vérifier ». Selon la version de macOS, un <strong>redémarrage de l’app</strong> peut être nécessaire pour que la Surveillance de l’entrée prenne effet.</p>
       </div>
     </div>
     <div class="en">
-      <p class="eyebrow">Step 2</p>
-      <h2>Grant permissions</h2>
+      <h2>Step 2: grant permissions</h2>
       <p>A wizard opens on first launch. Blabla needs three macOS permissions to work:</p>
       <ul class="plain">
-        <li><strong>Microphone</strong> — to hear you. macOS asks automatically.</li>
-        <li><strong>Accessibility</strong> — to type the transcribed text into the active app.</li>
-        <li><strong>Input Monitoring</strong> — to detect your dictation key.</li>
+        <li><strong>Microphone</strong>: to hear you. macOS asks automatically.</li>
+        <li><strong>Accessibility</strong>: to type the transcribed text into the active app.</li>
+        <li><strong>Input Monitoring</strong>: to detect your dictation key.</li>
       </ul>
       <div class="card accent">
         <span class="tag">Good to know</span>
@@ -408,27 +158,25 @@
   <!-- DICTATE -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Étape 3</p>
-      <h2>Dicter</h2>
+      <h2>Étape 3 : dicter</h2>
       <ol class="steps">
-        <li>Cliquez dans n'importe quel champ texte.</li>
-        <li>Maintenez la touche <kbd>⌥ Option droite</kbd> (à droite de la barre d'espace).</li>
+        <li>Cliquez dans n’importe quel champ texte.</li>
+        <li>Maintenez la touche <kbd>⌥ Option droite</kbd> (à droite de la barre d’espace).</li>
         <li>Parlez pendant que vous maintenez la touche.</li>
-        <li>Relâchez. Le texte transcrit s'insère immédiatement.</li>
+        <li>Relâchez. Le texte transcrit s’insère immédiatement.</li>
       </ol>
-      <p>Pendant la dictée, une petite carte apparaît à l'écran :</p>
+      <p>Pendant la dictée, une petite carte apparaît à l’écran :</p>
       <div class="hud" aria-hidden="true">
         <span class="grip">✛</span>
         <span class="vu"><i></i><i></i><i></i><i></i><i></i></span>
         <span class="t">Durée : 0:12</span>
         <span class="dots"><i></i><i></i><i></i></span>
       </div>
-      <p class="muted">Elle affiche le niveau du micro, la durée et l'activité. <strong>Attrapez-la pour la déplacer</strong> où vous voulez — sa position est mémorisée. Pour annuler une dictée en cours, appuyez sur <kbd>Échap</kbd>.</p>
+      <p class="muted">Elle affiche le niveau du micro, la durée et l’activité. <strong>Attrapez-la pour la déplacer</strong> où vous voulez : sa position est mémorisée. Pour annuler une dictée en cours, appuyez sur <kbd>Échap</kbd>.</p>
       <p>Vous préférez une autre touche ou un mode « appui unique » plutôt que le maintien ? Tout se règle dans <strong>Réglages → Trigger</strong>.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">Step 3</p>
-      <h2>Dictate</h2>
+      <h2>Step 3: dictate</h2>
       <ol class="steps">
         <li>Click into any text field.</li>
         <li>Hold <kbd>Right ⌥ Option</kbd> (to the right of the space bar).</li>
@@ -442,16 +190,16 @@
         <span class="t">Time: 0:12</span>
         <span class="dots"><i></i><i></i><i></i></span>
       </div>
-      <p class="muted">It shows the mic level, duration and activity. <strong>Grab it to move it</strong> wherever you like — its position is remembered. To cancel a dictation in progress, press <kbd>Esc</kbd>.</p>
-      <p>Prefer a different key, or a single-tap mode instead of hold-to-talk? It's all in <strong>Settings → Trigger</strong>.</p>
+      <p class="muted">It shows the mic level, duration and activity. <strong>Grab it to move it</strong> wherever you like: its position is remembered. To cancel a dictation in progress, press <kbd>Esc</kbd>.</p>
+      <p>Prefer a different key, or a single-tap mode instead of hold-to-talk? It’s all in <strong>Settings → Trigger</strong>.</p>
     </div>
   </section>
 
   <!-- CONVERSATIONS -->
   <section id="cr-echange">
     <div class="fr">
-      <p class="eyebrow">Depuis la version 1.6.0</p>
       <h2>Enregistrer un échange à plusieurs</h2>
+      <p class="section-note">Depuis la version 1.6.0</p>
       <ol class="steps">
         <li>Démarrez la dictée avec votre geste habituel.</li>
         <li>Maintenez <kbd>R</kbd> ou <kbd>r</kbd> pendant deux secondes, avant la fin des dix premières secondes. En mode maintien, gardez aussi la touche de dictée enfoncée jusqu’à la bascule.</li>
@@ -466,8 +214,8 @@
       <p>Le traitement de l’échange est entièrement local. Les modèles de voix nécessitent environ 14 Mo de téléchargement initial. La correction et le compte rendu utilisent <strong>Apple Intelligence</strong> lorsqu’il est disponible et activé, sans repli vers un service en ligne. Sinon, l’audio et la transcription restent accessibles. Relisez les attributions et la synthèse avant de les partager.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">New in version 1.6.0</p>
       <h2>Record a conversation with several people</h2>
+      <p class="section-note">New in version 1.6.0</p>
       <ol class="steps">
         <li>Start dictation with your usual gesture.</li>
         <li>Hold <kbd>R</kbd> or <kbd>r</kbd> for two seconds, completing the hold within the first ten seconds. In hold-to-talk mode, keep the dictation key held until the switch completes.</li>
@@ -486,22 +234,20 @@
   <!-- VOICE COMMANDS -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Aller plus loin</p>
       <h2>Commandes vocales</h2>
-      <p>Commencez votre dictée par un mot-clé pour <em>transformer</em> le texte au lieu de l'insérer tel quel :</p>
+      <p>Commencez votre dictée par un mot-clé pour <em>transformer</em> le texte au lieu de l’insérer tel quel :</p>
       <ul class="plain">
         <li>« <strong>Calcule.</strong> 23 fois 47. » → <code>1081</code> <span class="muted">(calcul hors ligne, instantané)</span></li>
-        <li>« <strong>Traduis en anglais.</strong> J'ai faim. » → <code>I'm hungry.</code></li>
+        <li>« <strong>Traduis en anglais.</strong> J’ai faim. » → <code>I’m hungry.</code></li>
       </ul>
       <p>Vous pouvez créer vos propres commandes dans <strong>Réglages → Commandes</strong>.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">Going further</p>
       <h2>Voice commands</h2>
       <p>Start your dictation with a keyword to <em>transform</em> the text instead of inserting it as-is:</p>
       <ul class="plain">
         <li>"<strong>Calculate.</strong> 23 times 47." → <code>1081</code> <span class="muted">(offline, instant)</span></li>
-        <li>"<strong>Translate to French.</strong> I'm hungry." → <code>J'ai faim.</code></li>
+        <li>"<strong>Translate to French.</strong> I’m hungry." → <code>J’ai faim.</code></li>
       </ul>
       <p>You can create your own commands in <strong>Settings → Commands</strong>.</p>
     </div>
@@ -510,9 +256,8 @@
   <!-- AI CLEANUP -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Optionnel</p>
-      <h2>Nettoyage par IA</h2>
-      <p>Par défaut, Blabla insère la transcription brute — et elle est déjà excellente. Si vous le souhaitez, le nettoyage IA retire les hésitations (« euh »), corrige les fautes et soigne la ponctuation.</p>
+      <h2>Nettoyage par IA (optionnel)</h2>
+      <p>Par défaut, Blabla insère la transcription brute, et elle est déjà excellente. Si vous le souhaitez, le nettoyage IA retire les hésitations (« euh »), corrige les fautes et soigne la ponctuation.</p>
       <p>Activez-le dans <strong>Réglages → IA</strong>. Il nécessite une clé OpenAI, à obtenir en quelques minutes :</p>
       <ol class="steps">
         <li>Créez un compte sur <strong>platform.openai.com</strong>.</li>
@@ -525,9 +270,8 @@
       </div>
     </div>
     <div class="en">
-      <p class="eyebrow">Optional</p>
-      <h2>AI cleanup</h2>
-      <p>By default, Blabla inserts the raw transcription — and it's already excellent. If you like, AI cleanup removes filler words ("um"), fixes typos and tidies punctuation.</p>
+      <h2>AI cleanup (optional)</h2>
+      <p>By default, Blabla inserts the raw transcription, and it’s already excellent. If you like, AI cleanup removes filler words ("um"), fixes typos and tidies punctuation.</p>
       <p>Enable it in <strong>Settings → AI</strong>. It needs an OpenAI key, which takes a few minutes to get:</p>
       <ol class="steps">
         <li>Create an account at <strong>platform.openai.com</strong>.</li>
@@ -544,29 +288,27 @@
   <!-- SETTINGS TOUR -->
   <section>
     <div class="fr">
-      <p class="eyebrow">Le tour du propriétaire</p>
       <h2>Ce que vous pouvez régler</h2>
       <ul class="plain">
-        <li><strong>Trigger</strong> — la touche de dictée et son mode (maintien, appui unique, double-tap).</li>
-        <li><strong>Audio</strong> — le micro, l'affichage de la carte, la pause automatique de la musique, les sons de démarrage/arrêt.</li>
-        <li><strong>Transcription</strong> — le modèle Whisper, la langue, et un vocabulaire personnalisé (vos noms propres et termes métier).</li>
-        <li><strong>Insertion</strong> — comment le texte est écrit dans l'app cible.</li>
-        <li><strong>Style</strong> — des préréglages de ton pour le nettoyage IA.</li>
-        <li><strong>Performance</strong> — le temps que prend chaque dictée.</li>
+        <li><strong>Trigger</strong> : la touche de dictée et son mode (maintien, appui unique, double-tap).</li>
+        <li><strong>Audio</strong> : le micro, l’affichage de la carte, la pause automatique de la musique, les sons de démarrage/arrêt.</li>
+        <li><strong>Transcription</strong> : le modèle Whisper, la langue, et un vocabulaire personnalisé (vos noms propres et termes métier).</li>
+        <li><strong>Insertion</strong> : comment le texte est écrit dans l’app cible.</li>
+        <li><strong>Style</strong> : des préréglages de ton pour le nettoyage IA.</li>
+        <li><strong>Performance</strong> : le temps que prend chaque dictée.</li>
       </ul>
       <p class="muted">Le menu de la barre de menu affiche aussi votre <strong>temps de frappe économisé</strong> et donne accès à un <strong>historique cherchable</strong> de vos dictées.</p>
       <p class="muted">Dans <strong>Historique → Tentatives et avis</strong>, vous pouvez préparer un diagnostic technique et consulter son contenu avant de l’envoyer aux développeurs. Ce rapport ne contient ni texte dicté ni audio. Aucun diagnostic n’est envoyé automatiquement. Les rapports reçus sont accessibles uniquement au développeur et supprimés après 30 jours ; la connexion réseau ne permet pas de garantir un anonymat absolu.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">The grand tour</p>
       <h2>What you can tune</h2>
       <ul class="plain">
-        <li><strong>Trigger</strong> — the dictation key and its mode (hold, single tap, double-tap).</li>
-        <li><strong>Audio</strong> — the microphone, the on-screen card, auto-pausing music, start/stop sounds.</li>
-        <li><strong>Transcription</strong> — the Whisper model, the language, and a custom vocabulary (your names and jargon).</li>
-        <li><strong>Insertion</strong> — how text is written into the target app.</li>
-        <li><strong>Style</strong> — tone presets for AI cleanup.</li>
-        <li><strong>Performance</strong> — how long each dictation takes.</li>
+        <li><strong>Trigger</strong>: the dictation key and its mode (hold, single tap, double-tap).</li>
+        <li><strong>Audio</strong>: the microphone, the on-screen card, auto-pausing music, start/stop sounds.</li>
+        <li><strong>Transcription</strong>: the Whisper model, the language, and a custom vocabulary (your names and jargon).</li>
+        <li><strong>Insertion</strong>: how text is written into the target app.</li>
+        <li><strong>Style</strong>: tone presets for AI cleanup.</li>
+        <li><strong>Performance</strong>: how long each dictation takes.</li>
       </ul>
       <p class="muted">The menu-bar menu also shows your <strong>time saved typing</strong> and opens a <strong>searchable history</strong> of your dictations.</p>
     </div>
@@ -575,39 +317,43 @@
   <!-- TROUBLESHOOTING -->
   <section>
     <div class="fr">
-      <p class="eyebrow">En cas de souci</p>
       <h2>Dépannage rapide</h2>
       <h3>La touche ne déclenche rien</h3>
-      <p>Vérifiez l'autorisation « Surveillance de l'entrée » dans les Réglages Système, puis <strong>redémarrez Blabla</strong>. C'est la solution la plus fréquente.</p>
-      <h3>Le texte ne s'insère pas</h3>
-      <p>Vérifiez l'autorisation « Accessibilité ». Le texte est de toute façon copié dans le presse-papier : vous pouvez toujours faire <kbd>⌘V</kbd>.</p>
+      <p>Vérifiez l’autorisation « Surveillance de l’entrée » dans les Réglages Système, puis <strong>redémarrez Blabla</strong>. C’est la solution la plus fréquente.</p>
+      <h3>Le texte ne s’insère pas</h3>
+      <p>Vérifiez l’autorisation « Accessibilité ». Le texte est de toute façon copié dans le presse-papier : vous pouvez toujours faire <kbd>⌘V</kbd>.</p>
       <h3>Environnement bruyant</h3>
-      <p>Activez « Environnement bruyant » dans <strong>Réglages → Audio</strong> : Blabla durcit ses seuils pour éviter d'inventer du texte sur du bruit.</p>
+      <p>Activez « Environnement bruyant » dans <strong>Réglages → Audio</strong> : Blabla durcit ses seuils pour éviter d’inventer du texte sur du bruit.</p>
       <h3>Le téléchargement du modèle échoue</h3>
-      <p>Sur une connexion lente, choisissez un modèle plus léger dans <strong>Réglages → Transcription</strong> — il se télécharge en quelques secondes.</p>
+      <p>Sur une connexion lente, choisissez un modèle plus léger dans <strong>Réglages → Transcription</strong> : il se télécharge en quelques secondes.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">If something's off</p>
       <h2>Quick troubleshooting</h2>
       <h3>The key does nothing</h3>
       <p>Check the "Input Monitoring" permission in System Settings, then <strong>restart Blabla</strong>. This is the most common fix.</p>
-      <h3>Text won't insert</h3>
-      <p>Check the "Accessibility" permission. The text is copied to the clipboard anyway — you can always press <kbd>⌘V</kbd>.</p>
+      <h3>Text won’t insert</h3>
+      <p>Check the "Accessibility" permission. The text is copied to the clipboard anyway: you can always press <kbd>⌘V</kbd>.</p>
       <h3>Noisy environment</h3>
-      <p>Turn on "Noisy environment" in <strong>Settings → Audio</strong>: Blabla tightens its thresholds so it won't invent text from noise.</p>
+      <p>Turn on "Noisy environment" in <strong>Settings → Audio</strong>: Blabla tightens its thresholds so it won’t invent text from noise.</p>
       <h3>Model download fails</h3>
-      <p>On a slow connection, pick a lighter model in <strong>Settings → Transcription</strong> — it downloads in seconds.</p>
+      <p>On a slow connection, pick a lighter model in <strong>Settings → Transcription</strong>: it downloads in seconds.</p>
     </div>
   </section>
 
-  <section class="updates">
+  <section>
+    <h2><span class="fr">Télécharger et essayer Blabla</span><span class="en">Download and try Blabla</span></h2>
+    <ul class="article-source-links">
+      <li><a href="https://go.besle.org/go/apps/blabla/download?source=blabla-site"><span class="fr">Télécharger la dernière version pour Mac</span><span class="en">Download the latest version for Mac</span></a></li>
+      <li><a href="https://github.com/salsbo/blabla-guide/releases" target="_blank" rel="noreferrer"><span class="fr">Toutes les versions</span><span class="en">All versions</span> ↗</a></li>
+    </ul>
+  </section>
+
+  <section class="updates" id="nouveautes">
     <div class="fr">
-      <p class="eyebrow">Nouvelles de l’application</p>
       <h2>Être informé des nouveautés</h2>
       <p>Je vous écrirai seulement lorsqu’il y a une nouvelle version ou une information utile sur Blabla. Votre adresse ne sera ni vendue ni partagée.</p>
     </div>
     <div class="en">
-      <p class="eyebrow">App updates</p>
       <h2>Keep up with Blabla</h2>
       <p>I will only write when there is a new version or useful news about Blabla. Your address will not be sold or shared.</p>
     </div>
@@ -627,17 +373,16 @@
     </form>
   </section>
 
-  <footer>
-    <div class="fr">
-      <p><strong>Blabla</strong> — dictée locale pour Mac. Votre voix reste sur votre Mac.</p>
-      <p>Une question ou une suggestion ? Écrivez à <a href="mailto:jrobert@besle.org">jrobert@besle.org</a>.</p>
-    </div>
-    <div class="en">
-      <p><strong>Blabla</strong> — local dictation for Mac. Your voice stays on your Mac.</p>
-      <p>A question or a suggestion? Email <a href="mailto:jrobert@besle.org">jrobert@besle.org</a>.</p>
-    </div>
-  </footer>
+  
+
+  <p class="fr contact">Une question ou une suggestion ? Écrivez à <a href="mailto:jrobert@besle.org">jrobert@besle.org</a>.</p>
+  <p class="en contact">A question or a suggestion? Email <a href="mailto:jrobert@besle.org">jrobert@besle.org</a>.</p>
+
+  <p class="article-end"><span class="fr">Publié sur Besle.org · Une page par idée</span><span class="en">Published on Besle.org · One page per idea</span></p>
+  </div>
 </div>
+</article></main>
+<footer class="site-footer"><div class="footer-inner shell"><span>© 2026 Julien Robert</span><a href="https://www.besle.org/">Besle.org</a></div></footer>
 
 <script>
   function setLang(l) {
@@ -645,13 +390,7 @@
     document.getElementById('fr').setAttribute('aria-pressed', String(l === 'fr'));
     document.getElementById('en').setAttribute('aria-pressed', String(l === 'en'));
     document.documentElement.lang = l;
-  }
-  function toggleTheme() {
-    var cur = document.documentElement.getAttribute('data-theme');
-    if (!cur) {
-      cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    document.documentElement.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+    document.title = l === 'en' ? 'Blabla: local dictation for Mac · Besle.org' : 'Blabla : la dictée locale pour Mac · Besle.org';
   }
   // default language from browser, French-first
   setLang((navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr');
@@ -709,6 +448,32 @@
         try { localStorage.setItem(KEY, JSON.stringify({ n: n, t: Date.now() })); } catch (e) {}
       })
       .catch(function () { /* hors ligne / quota API : compteur masqué */ });
+  })();
+
+  // Démonstration : les sous-titres sont affichés dans la bande sous la vidéo.
+  (function () {
+    var dialog = document.getElementById('video-dialog');
+    var video = dialog.querySelector('video');
+    var band = dialog.querySelector('.video-caption-band p');
+    var track = video.textTracks[0];
+    function sync() {
+      var cues = track && track.activeCues ? Array.prototype.slice.call(track.activeCues) : [];
+      band.textContent = cues.map(function (c) { return c.text || ''; }).filter(Boolean).join('\n') || ' ';
+    }
+    if (track) {
+      track.mode = 'hidden';
+      track.addEventListener('cuechange', sync);
+    }
+    document.getElementById('video-open').addEventListener('click', function () {
+      dialog.showModal();
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { /* lecture automatique refusée : les contrôles restent disponibles */ });
+    });
+    document.getElementById('video-close').addEventListener('click', function () {
+      video.pause();
+      dialog.close();
+    });
+    dialog.addEventListener('close', function () { video.pause(); });
   })();
 </script>
 </body>
